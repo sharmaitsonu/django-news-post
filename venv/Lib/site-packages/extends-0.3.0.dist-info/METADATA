@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: extends
+Version: 0.3.0
+Summary: A simple Python library that adds a decorator which helps extend functionality of classes by new methods without inheriting them
+Home-page: https://github.com/mefolder/extends
+License: BSD-3-Clause
+Author: Arthur Hakimov
+Author-email: verybigfolder@yandex.ru
+Requires-Python: >=3.5,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/mefolder/extends
+Description-Content-Type: text/markdown
+
+# extends
+A simple Python library that adds a decorator which helps extend functionality of classes by new methods without inheriting them
+
+# Example
+```python3
+from dataclasses import dataclass
+from typing import List
+from extends import extends
+
+
+@dataclass
+class Student:
+    name: str
+    marks: List[int]
+
+
+@extends(Student)
+def avg(self: Student) -> float:
+    return sum(self.marks) / len(self.marks)
+
+```
+
